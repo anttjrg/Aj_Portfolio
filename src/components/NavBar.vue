@@ -1,32 +1,43 @@
 <template>
-    <header class="flex justify-between items-center p-6 bg-opacity-50 relative z-20">
-        <div class="text-white text-3xl font-bold">T.I.P</div>
+    <header class="flex justify-between items-center p-6 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 bg-green-400 rounded-full"></div>
+            <div class="text-white text-3xl font-bold">AJ.DEV</div>
+        </div>
         <!-- Mobile Toggle Button -->
         <div class="md:hidden z-30">
             <button type="button" 
-                class="block focus:outline-none"
+                class="block focus:outline-none p-2"
                 @click="isMenuOpen = !isMenuOpen">
-                <span v-if="isMenuOpen" class="text-5xl">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/delete-sign.png" alt="close">
+                <span v-if="isMenuOpen" class="text-3xl text-green-400">
+                    ✕
                 </span>
-                <span v-else class="text-5xl">
-                    <img src="https://img.icons8.com/ios-filled/100/ffffff/menu--v6.png" alt="menu">
+                <span v-else class="text-3xl text-white">
+                    ☰
                 </span>
             </button>
         </div> 
         <!-- Navbar Link -->
         <nav
-            :class="['fixed inset-0 z-20 flex flex-col items-center justify-center bg-transparent md:relative md:bg-transparent md:flex md:justify-between md:flex-row',
-                isMenuOpen ? 'block':'hidden'
+            :class="['md:flex md:items-center md:space-x-8 transition-all duration-300',
+                isMenuOpen ? 'fixed inset-0 bg-gray-900/98 backdrop-blur-lg flex flex-col justify-center items-center z-40' : 'hidden md:block'
             ]"
         >
-            <ul class="flex flex-col items-center space-y-5 md:flex-row md:space-x-5 md:space-y-0">
+            <ul class="flex flex-col items-center space-y-8 md:flex-row md:space-x-8 md:space-y-0">
                 <li v-for="item in Menu" :key="item.name">
                     <a href="javascript:void(0)" 
-                        class="block text-white transition hover:text-[#8B5CF6] ease-linear text-2xl md:text-lg"
+                        :class="[
+                            'block transition-all duration-300 text-xl md:text-lg font-medium hover:scale-105',
+                            item.name === 'Logout' 
+                                ? 'text-red-400 hover:text-red-300 bg-red-400/10 hover:bg-red-400/20 px-4 py-2 rounded-full border border-red-400/30'
+                                : 'text-white hover:text-green-400 relative group'
+                        ]"
                         @click="item.name === 'Logout' ? logout() : scrollToSection(item.href)"
                     >
                         {{ item.name }}
+                        <!-- Animated underline for non-logout items -->
+                        <span v-if="item.name !== 'Logout'" 
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
             </ul>
@@ -39,10 +50,10 @@ import { ref } from 'vue';
 
 const Menu = ref([
     { name: 'About Me', href: '#about' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Hobby', href: '#hobby' },
-    { name: 'Contact', href: '#contact' },
     { name: 'Logout', href: '#logout' }, // Log out menu item
 ]);
 
@@ -53,7 +64,12 @@ const scrollToSection = (href) => {
     isMenuOpen.value = false;
     const section = document.querySelector(href);
     if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        const navbarHeight = 80; // Approximate navbar height
+        const targetPosition = section.offsetTop - navbarHeight;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
     }
 };
 
@@ -68,36 +84,55 @@ const logout = () => {
 </script>
 
 <style scoped>
-/* Navbar styling */
-nav {
-    background: transparent; /* Make the background transparent */
-    /* border-bottom: 2px solid #4F46E5; */ /* Removed border for emphasis */
-}
-
-/* Mobile Menu Styling */
-.md:hidden {
-    display: block;
-}
-
-ul li a {
-    color: white; /* White text for visibility */
-    transition: color 0.3s ease;
-}
-
-ul li a:hover {
-    color: #8B5CF6; /* Violet on hover */
-}
-
-/* Remove dark background from mobile menu */
-nav ul {
-    background-color: transparent; /* Remove the dark background */
-    padding: 2rem 0;
-    border-radius: 8px;
-}
-
-/* Fix text visibility when scrolling */
+/* Modern navbar styling */
 header {
-    position: relative;
-    z-index: 20; /* Ensure the text stays on top */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Smooth transitions */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu animations */
+@media (max-width: 768px) {
+    nav.fixed {
+        animation: fadeInScale 0.3s ease-out forwards;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hover effects */
+.group:hover .absolute {
+    transform: scaleX(1);
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #059669;
 }
 </style>

@@ -7,12 +7,11 @@
           <div v-if="isLoggedIn">
             <!-- Components rendered after login -->
             <Navbar />
-            <AjSection />
-            <AboutSection />
+            <IntroductionSection />
+            <EducationSection />
+            <SkillsSection />
             <ExperienceSection />
-            <LatestProjSection />
-            <ContactSection />
-            <HobbySection />
+            <ProjectSection />
             <Footer />
             <BackTop />
           </div>
@@ -38,12 +37,11 @@ import { defineAsyncComponent } from 'vue';
 
 // Components
 const Navbar = defineAsyncComponent(() => import('@/components/NavBar.vue'));
-const AjSection = defineAsyncComponent(() => import('@/components/AjSection.vue'));
-const AboutSection = defineAsyncComponent(() => import('@/components/AboutSection.vue'));
+const IntroductionSection = defineAsyncComponent(() => import('@/components/IntroductionSection.vue'));
+const EducationSection = defineAsyncComponent(() => import('@/components/EducationSection.vue'));
+const SkillsSection = defineAsyncComponent(() => import('@/components/SkillsSection.vue'));
 const ExperienceSection = defineAsyncComponent(() => import('@/components/ExperienceSection.vue'));
-const LatestProjSection = defineAsyncComponent(() => import('@/components/LatestProjSection.vue'));
-const ContactSection = defineAsyncComponent(() => import('@/components/ContactSection.vue'));
-const HobbySection = defineAsyncComponent(() => import('@/components/HobbySection.vue'));
+const ProjectSection = defineAsyncComponent(() => import('@/components/ProjectSection.vue'));
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'));
 const BackTop = defineAsyncComponent(() => import('@/components/BackTop.vue'));
 import LoadingSection from './components/LoadingSection.vue';
