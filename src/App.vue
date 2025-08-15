@@ -16,7 +16,6 @@
             <BackTop />
           </div>
           <div v-else>
-            <!-- Display the login page if not logged in -->
             <Login @login-success="onLoginSuccess" />
           </div>
         </div>
@@ -32,10 +31,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';  // Import ref to handle reactive state
+import { ref } from 'vue';  
 import { defineAsyncComponent } from 'vue';
 
-// Components
 const Navbar = defineAsyncComponent(() => import('@/components/NavBar.vue'));
 const IntroductionSection = defineAsyncComponent(() => import('@/components/IntroductionSection.vue'));
 const EducationSection = defineAsyncComponent(() => import('@/components/EducationSection.vue'));

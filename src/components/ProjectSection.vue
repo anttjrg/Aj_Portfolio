@@ -5,7 +5,7 @@
       <div class="text-center space-y-6 mb-16">
         <div class="flex items-center justify-center space-x-2 mb-8">
           <div class="w-3 h-3 bg-green-400 rounded-full"></div>
-          <span class="text-green-400 uppercase tracking-wide">My Work</span>
+          <span class="text-green-400 uppercase tracking-wide">Projects</span>
         </div>
         <h2 class="text-4xl lg:text-6xl font-bold">
           <span class="text-green-400">Learn</span> + 
