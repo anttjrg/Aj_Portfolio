@@ -1,7 +1,7 @@
 <template>
-  <section id="about" class="min-h-screen bg-gray-900 text-white relative overflow-hidden">
+  <section id="about" class="bg-gray-900 text-white relative overflow-hidden">
     <!-- Hero Section -->
-    <div class="max-w-8xl mx-auto px-14 py-16">
+    <div class="max-w-8xl mx-auto px-14 pt-16 pb-0">
       <!-- Main Hero Content -->
       <div class="grid lg:grid-cols-2 gap-120 items-center mb-20">
         <div class="space-y-8 lg:pl-32 flex flex-col justify-center">
@@ -11,14 +11,17 @@
             </div>
             <div class="text-white">Web & App Developer</div>
           </h1>
-          <p class="text-gray-300 text-lg max-w-lg leading-relaxed">
+          <p class="text-gray-300 text-lg max-w-lg leading-relaxed text-justify">
             A Computer Engineering graduate and passionate about creating digital solutions. 
             I specialize in full-stack development, combining technical expertise with 
             creative design to build innovative web and mobile applications.
           </p>
-          <div class="flex">
+          <div class="flex space-x-4">
             <button class="bg-green-400 text-black px-8 py-3 rounded-full font-semibold hover:bg-green-300 transition-colors">
               DISCOVER MY WORK
+            </button>
+            <button class="bg-transparent text-white px-8 py-3 rounded-full font-semibold border-2 border-green-400 hover:bg-green-400 hover:text-black transition-colors">
+              DOWNLOAD MY CV
             </button>
           </div>
           
@@ -90,7 +93,7 @@
       </div>
 
       <!-- Stats Section -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-0 bg-gray-800 rounded-2xl p-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-0 bg-gray-800 rounded-2xl p-6 pb-4">
         <div class="text-center">
           <div class="text-3xl font-bold text-green-400">5</div>
           <div class="text-gray-300">Projects</div>
