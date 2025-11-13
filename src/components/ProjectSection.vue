@@ -19,11 +19,11 @@
         <!-- Category Filter -->
         <div class="flex justify-center space-x-4 mt-8">
           <button
-            v-for="category in ['all', 'Web Development', 'Mobile App', 'IoT Systems']"
+            v-for="category in ['All', 'Web Development', 'Mobile App', 'IoT Systems']"
             :key="category"
             @click="selectedCategory = category"
             :class="[
-              'px-6 py-2 rounded-full transition-all duration-300',
+              'px-6 py-2 rounded-full transition-All duration-300',
               selectedCategory === category 
                 ? 'bg-green-400 text-black font-semibold' 
                 : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -39,7 +39,7 @@
         <div
           v-for="project in filteredProjects"
           :key="project.id"
-          class="bg-white text-black rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-300 shadow-lg"
+          class="bg-gray-800 text-white rounded-xl p-6 hover:transform hover:scale-105 transition-All duration-300 shadow-lg border-2 border-green-400 flex flex-col h-full"
         >
           <!-- Project Image -->
           <div class="relative mb-4 group">
@@ -49,7 +49,7 @@
               class="w-full h-48 object-cover rounded-lg"
             />
             <!-- Overlay with Links -->
-            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 rounded-lg transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 rounded-lg transition-All duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
               <div class="flex space-x-4">
                 <a
                   :href="project.webURL"
@@ -76,27 +76,29 @@
           </div>
           
           <!-- Project Content -->
-          <h3 class="font-bold mb-2 text-xl">{{ project.title }}</h3>
-          <p class="text-gray-600 text-sm mb-4">{{ project.description }}</p>
-          
-          <!-- Technologies -->
-          <div class="flex flex-wrap gap-2">
-            <span
-              v-for="technology in project.technologies"
-              :key="technology"
-              class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full font-medium"
-            >
-              {{ technology }}
-            </span>
+          <div class="flex-1 flex flex-col">
+            <h3 class="font-bold mb-2 text-xl text-green-400">{{ project.title }}</h3>
+            <p class="text-gray-300 text-md mb-4 flex-1">{{ project.description }}</p>
+            
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2 mt-auto">
+              <span
+                v-for="technology in project.technologies"
+                :key="technology"
+                class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full font-medium"
+              >
+                {{ technology }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Final CTA Section -->
-      <div class="bg-green-400 text-black rounded-3xl p-8 text-center">
-        <h3 class="text-2xl font-bold mb-4">Let's Work Together!</h3>
-        <p class="mb-6">Ready to bring your ideas to life? Let's create something amazing together.</p>
-        <button class="bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
+      <div class="p-8 text-center">
+        <h3 class="text-3xl font-bold mb-4 text-green-400">Let's Work Together!</h3>
+        <p class="mb-6">We can transform your vision into reality.</p>
+        <button @click="scrollToAbout" class="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
           Contact Me
         </button>
       </div>
@@ -106,9 +108,23 @@
 
 <script setup>
 import { ref, computed } from "vue";
+
+// Navigate to About Me section
+const scrollToAbout = () => {
+  const aboutSection = document.getElementById('about');
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+};
 import petbook from '../assets/petbook.jpg';
 import quiz from '../assets/quiz.png';
 import watering from '../assets/water.jpg';
+import Kaching from '../assets/Image10.png';
+import worxsnap from '../assets/Worxsnap.jpg';
+import KachingWeb from '../assets/KachingWeb.jpg';
 
 const Projects = ref([
   {
@@ -117,7 +133,7 @@ const Projects = ref([
     image: petbook,
     title: "Petbook",
     description: "A social media platform tailored for pet lovers, where users can create profiles for their pets, share photos, track pet health, and connect with other pet owners.",
-    technologies: ["Vue.js 3", "TailwindCSS", "Node.js"],
+    technologies: ["HTML", "TailwindCSS", "Node.js"],
     gitURL: "https://github.com/anttjrg",
     webURL: "#",
   },
@@ -141,11 +157,39 @@ const Projects = ref([
     gitURL: "https://github.com/anttjrg",
     webURL: "#",
   },
+  {
+    id: 4,
+    category: "Mobile App",
+    image: Kaching,
+    title: "Kaching Mobile",
+    description: "Point of Sale (POS) system tailored for small and medium-sized businesses to improve sales tracking, inventory management, expense monitoring, and employee clock-in/out tracking. ",
+    technologies: ["React js", "React Native", "Expo Sqlite", "Drizzle ORM"],
+    gitURL: "https://github.com/anttjrg",
+    webURL: "#",
+  },
+  {
+    id: 5,
+    category: "Mobile App",
+    image: worxsnap,
+    title: "WorxSnap HRIS Application",
+    description: "Human Resource Information System (HRIS) application aimed at streamlining HR operations. Key features included payroll management, leave applications, attendance tracking, and calendar-based meeting reminders. ",
+    technologies: ["React js", "React Native", "Axios"],
+    gitURL: "https://github.com/anttjrg", 
+  },
+  {
+    id: 6,
+    category: "Web Development",
+    image: KachingWeb,
+    title: "Kaching Web",
+    description: "The website serves as an introduction to KaChing!’s products, highlighting its key features, benefits, and upcoming availability on the Play Store and App Store, helping business owners prepare to streamline their operations and grow efficiently.",
+    technologies: ["HTML", "TailwindCSS", "Next js"],
+    gitURL: "https://github.com/anttjrg", 
+  }
 ]);
 
-const selectedCategory = ref("all");
+const selectedCategory = ref("All");
 const filteredProjects = computed(() => {
-  if (selectedCategory.value === "all") {
+  if (selectedCategory.value === "All") {
     return Projects.value;
   }
   return Projects.value.filter((project) =>

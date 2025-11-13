@@ -10,7 +10,7 @@
           </div>
           <div>
             <h2 class="text-3xl lg:text-4xl font-bold">
-              Ninjaworx Inc.<br>
+              <a href="https://ninjaworx.tech/" target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors cursor-pointer">Ninjaworx Inc.</a><br>
               <span class="text-green-400">On the Job Training</span>
             </h2>
             <div class="mt-2">
@@ -42,7 +42,7 @@
           </div>
           <div>
             <h2 class="text-3xl lg:text-4xl font-bold">
-              Ninjaworx Inc.<br>
+              <a href="https://ninjaworx.tech/" target="_blank" rel="noopener noreferrer" class="hover:text-green-400 transition-colors cursor-pointer">Ninjaworx Inc.</a><br>
               <span class="text-green-400">Project Based - Freelance</span>
             </h2>
             <div class="mt-2">

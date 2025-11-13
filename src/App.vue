@@ -4,8 +4,6 @@
       <template #default>
         <div>
           <!-- Check if user is logged in -->
-          <div v-if="isLoggedIn">
-            <!-- Components rendered after login -->
             <Navbar />
             <IntroductionSection />
             <EducationSection />
@@ -14,10 +12,6 @@
             <ProjectSection />
             <Footer />
             <BackTop />
-          </div>
-          <div v-else>
-            <Login @login-success="onLoginSuccess" />
-          </div>
         </div>
       </template>
 
@@ -42,14 +36,6 @@ const ExperienceSection = defineAsyncComponent(() => import('@/components/Experi
 const ProjectSection = defineAsyncComponent(() => import('@/components/ProjectSection.vue'));
 const Footer = defineAsyncComponent(() => import('@/components/Footer.vue'));
 const BackTop = defineAsyncComponent(() => import('@/components/BackTop.vue'));
-import LoadingSection from './components/LoadingSection.vue';
-import Login from './components/Login.vue';  // Import Login component
 
-// Login state
-const isLoggedIn = ref(false);  // Track whether the user is logged in
 
-// Handle successful login
-const onLoginSuccess = () => {
-  isLoggedIn.value = true;  // Set login state to true
-};
 </script>

@@ -1,8 +1,6 @@
 <template>
     <header class="flex justify-between items-center p-6 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
         <div class="flex items-center space-x-2">
-            <div class="w-3 h-3 bg-green-400 rounded-full"></div>
-            <div class="text-white text-3xl font-bold">AJ.DEV</div>
         </div>
         <!-- Mobile Toggle Button -->
         <div class="md:hidden z-30">
@@ -23,20 +21,20 @@
                 isMenuOpen ? 'fixed inset-0 bg-gray-900/98 backdrop-blur-lg flex flex-col justify-center items-center z-40' : 'hidden md:block'
             ]"
         >
-            <ul class="flex flex-col items-center space-y-8 md:flex-row md:space-x-8 md:space-y-0">
+            <ul class="flex flex-col items-center space-y-16 md:flex-row md:space-x-16 md:space-y-0">
                 <li v-for="item in Menu" :key="item.name">
                     <a href="javascript:void(0)" 
                         :class="[
-                            'block transition-all duration-300 text-xl md:text-lg font-medium hover:scale-105',
-                            item.name === 'Logout' 
-                                ? 'text-red-400 hover:text-red-300 bg-red-400/10 hover:bg-red-400/20 px-4 py-2 rounded-full border border-red-400/30'
+                            'block transition-all duration-300 text-2xl md:text-xl font-medium hover:scale-105',
+                            item.name === 'Exit' 
+                                ? 'text-red-400 hover:text-red-300 bg-red-400/10 hover:bg-red-400/20 px-8 py-2 rounded-full border border-red-400/30'
                                 : 'text-white hover:text-green-400 relative group'
                         ]"
-                        @click="item.name === 'Logout' ? logout() : scrollToSection(item.href)"
+                        @click="item.name === 'Exit' ? Exit() : scrollToSection(item.href)"
                     >
                         {{ item.name }}
                         <!-- Animated underline for non-logout items -->
-                        <span v-if="item.name !== 'Logout'" 
+                        <span v-if="item.name !== 'Exit'" 
                             class="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-400 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </li>
@@ -54,7 +52,7 @@ const Menu = ref([
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Logout', href: '#logout' }, // Log out menu item
+    { name: 'Exit', href: '#Exit' }, 
 ]);
 
 const isMenuOpen = ref(false);
@@ -73,14 +71,20 @@ const scrollToSection = (href) => {
     }
 };
 
-// Function to handle logout
-const logout = () => {
-    // Clear session storage or token (if you're using authentication)
-    localStorage.removeItem('auth_token'); // Example for removing token from localStorage
-    sessionStorage.clear(); // Clear session storage if used
-    // Redirect to the login page or home page
-    window.location.href = '/login'; // Change this URL to your login page
+// Function to exit/close the site
+const Exit = () => {
+    // Show confirmation dialog first
+    if (confirm("Are you sure you want to leave this site?")) {
+        // Try to close the window first
+        window.close();
+        
+        // If window.close() fails (most common), navigate to Google as fallback
+        setTimeout(() => {
+            window.location.href = "https://www.google.com";
+        }, 100);
+    }
 };
+
 </script>
 
 <style scoped>

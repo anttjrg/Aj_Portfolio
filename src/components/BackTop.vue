@@ -2,9 +2,9 @@
     <button 
       v-if="isVisible" 
       @click="scrolltoTop" 
-      class="fixed bottom-4 right-4 bg-gradient-to-r from-primary to-pink-500 text-white 
+      class="fixed bottom-4 right-4 bg-gradient-to-r from-green-600 to-green-800 text-white font-bold
       rounded-full w-12 h-12 flex items-center justify-center text-xl cursor-pointer 
-      transition-opacity duration-300 hover:bg-blue-600"
+      transition-all duration-300 hover:from-green-700 hover:to-green-900 hover:scale-105"
     >
       <!-- Add an up arrow or text here -->
       <span>&#8593;</span> <!-- Upward arrow for scroll-to-top -->

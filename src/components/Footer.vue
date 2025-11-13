@@ -1,9 +1,8 @@
 <template>
-    <footer class="mt-8 border z-10 border-t-[#33353F] border-l-transparent border-r-transparent text-white relative">
-      <div class="container p-12 flex justify-between">
-        <div class="text-white text-3xl font-bold">LOGO</div>
-        <div class="absolute bottom-4 right-4 text-slate-600">
-          All rights reserved.
+    <footer class="bg-gray-900 border-t border-gray-800 text-white py-8">
+      <div class="max-w-7xl mx-auto px-6 flex items-center relative">
+        <div class="text-gray-400 text-sm absolute left-1/2 transform -translate-x-1/2">
+          © 2025 Anette Babatio. All rights reserved.
         </div>
       </div>
     </footer>

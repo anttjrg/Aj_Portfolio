@@ -20,7 +20,8 @@
               <div class="whitespace-nowrap">Technological Institute of the Philippines, Manila</div>
               <span class="text-green-400">Computer Engineering</span>
             </h2>
-            <span class="text-green-400 text-lg lg:text-xl font-semibold">2021 - 2025</span>
+            <span class="text-green-400 text-lg lg:text-xl font-semibold">Major in Cyber Security</span>
+              <span class="text-green-400 text-lg lg:text-xl font-semibold"> (2021 - 2025)</span>
           </div>
         </div>
         
