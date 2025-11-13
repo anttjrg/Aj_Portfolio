@@ -2,8 +2,8 @@
     <button 
       v-if="isVisible" 
       @click="scrolltoTop" 
-      class="fixed bottom-4 right-4 bg-gradient-to-r from-green-600 to-green-800 text-white font-bold
-      rounded-full w-12 h-12 flex items-center justify-center text-xl cursor-pointer 
+      class="fixed bottom-2 right-2 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 bg-gradient-to-r from-green-600 to-green-800 text-white font-bold
+      rounded-full w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center text-base sm:text-xl md:text-2xl cursor-pointer 
       transition-all duration-300 hover:from-green-700 hover:to-green-900 hover:scale-105"
     >
       <!-- Add an up arrow or text here -->

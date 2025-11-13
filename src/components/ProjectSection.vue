@@ -1,29 +1,29 @@
 <template>
-  <section id="projects" class="min-h-screen bg-gray-900 text-white py-20">
-    <div class="max-w-7xl mx-auto px-6">
+  <section id="projects" class="min-h-screen bg-gray-900 text-white py-10 sm:py-16 md:py-20 lg:py-24 xl:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16">
       <!-- Projects Header Section -->
-      <div class="text-center space-y-6 mb-16">
+      <div class="text-center space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-12 md:mb-16 lg:mb-20">
         <div class="flex items-center justify-center space-x-2 mb-8">
           <div class="w-3 h-3 bg-green-400 rounded-full"></div>
           <span class="text-green-400 uppercase tracking-wide">Projects</span>
         </div>
-        <h2 class="text-4xl lg:text-6xl font-bold">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold">
           <span class="text-green-400">Learn</span> + 
           <span class="text-green-400">Build</span> + 
           <span class="text-green-400">Innovate</span>
         </h2>
-        <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        <p class="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl max-w-xl sm:max-w-2xl lg:max-w-3xl mx-auto">
           Explore my latest projects showcasing innovative solutions across web development, mobile applications, and IoT systems.
         </p>
         
         <!-- Category Filter -->
-        <div class="flex justify-center space-x-4 mt-8">
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10">
           <button
             v-for="category in ['All', 'Web Development', 'Mobile App', 'IoT Systems']"
             :key="category"
             @click="selectedCategory = category"
             :class="[
-              'px-6 py-2 rounded-full transition-All duration-300',
+              'px-3 sm:px-4 md:px-6 lg:px-8 py-1.5 sm:py-2 md:py-3 rounded-full transition-All duration-300 text-xs sm:text-sm md:text-base lg:text-lg',
               selectedCategory === category 
                 ? 'bg-green-400 text-black font-semibold' 
                 : 'bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white'
@@ -35,19 +35,19 @@
       </div>
 
       <!-- Projects Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" data-aos="fade-up">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10 mb-10 sm:mb-14 md:mb-16 lg:mb-20" data-aos="fade-up">
         <div
           v-for="project in filteredProjects"
           :key="project.id"
-          class="bg-gray-800 text-white rounded-xl p-6 hover:transform hover:scale-105 transition-All duration-300 shadow-lg border-2 border-green-400 flex flex-col h-full"
-        >
+          class="bg-gray-800 text-white rounded-xl p-4 sm:p-6 md:p-8 lg:p-10 hover:transform hover:scale-105 transition-All duration-300 shadow-lg border-2 border-green-400 flex flex-col h-full">
+        
           <!-- Project Image -->
           <div class="relative mb-4 group">
             <img 
               :src="project.image" 
               :alt="project.title"
-              class="w-full h-48 object-cover rounded-lg"
-            />
+              class="w-full h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64 object-cover rounded-lg">
+            
             <!-- Overlay with Links -->
             <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-80 rounded-lg transition-All duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
               <div class="flex space-x-4">
@@ -77,16 +77,16 @@
           
           <!-- Project Content -->
           <div class="flex-1 flex flex-col">
-            <h3 class="font-bold mb-2 text-xl text-green-400">{{ project.title }}</h3>
-            <p class="text-gray-300 text-md mb-4 flex-1">{{ project.description }}</p>
+            <h3 class="font-bold mb-2 sm:mb-3 md:mb-4 text-lg sm:text-xl md:text-2xl lg:text-3xl text-green-400">{{ project.title }}</h3>
+            <p class="text-gray-300 text-xs sm:text-sm md:text-base lg:text-lg mb-3 sm:mb-4 md:mb-6 flex-1">{{ project.description }}</p>
             
             <!-- Technologies -->
-            <div class="flex flex-wrap gap-2 mt-auto">
+            <div class="flex flex-wrap gap-1 sm:gap-2 md:gap-3 mt-auto">
               <span
                 v-for="technology in project.technologies"
                 :key="technology"
-                class="px-3 py-1 bg-green-100 text-green-800 text-xs rounded-full font-medium"
-              >
+                class="px-2 sm:px-3 md:px-4 py-1 sm:py-1.5 bg-green-100 text-green-800 text-xs sm:text-sm md:text-base rounded-full font-medium">
+              
                 {{ technology }}
               </span>
             </div>
@@ -95,10 +95,10 @@
       </div>
 
       <!-- Final CTA Section -->
-      <div class="p-8 text-center">
-        <h3 class="text-3xl font-bold mb-4 text-green-400">Let's Work Together!</h3>
-        <p class="mb-6">We can transform your vision into reality.</p>
-        <button @click="scrollToAbout" class="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
+      <div class="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 text-center">
+        <h3 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 text-green-400">Let's Work Together!</h3>
+        <p class="mb-4 sm:mb-6 md:mb-8 text-sm sm:text-base md:text-lg lg:text-xl">We can transform your vision into reality.</p>
+        <button @click="scrollToAbout" class="bg-white text-black px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 py-2 sm:py-3 md:py-4 rounded-full font-semibold hover:bg-gray-800 transition-colors text-sm sm:text-base md:text-lg lg:text-xl">
           Contact Me
         </button>
       </div>

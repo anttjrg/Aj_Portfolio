@@ -1,18 +1,18 @@
 <template>
-  <section id="skills" class="bg-gray-900 text-white -mt-16 pt-20 pb-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="mb-20">
-        <div class="flex items-center space-x-2 mb-8">
+  <section id="skills" class="bg-gray-900 text-white -mt-8 sm:-mt-12 md:-mt-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+      <div class="mb-10 sm:mb-14 md:mb-20 lg:mb-24">
+        <div class="flex items-center space-x-2 mb-4 sm:mb-6 md:mb-8">
           <div class="w-3 h-3 bg-green-400 rounded-full"></div>
           <span class="text-green-400 uppercase tracking-wide">Skills</span>
         </div>
         
-        <div class="grid lg:grid-cols-2 gap-12">
-          <div class="space-y-6">
-            <h2 class="text-4xl lg:text-5xl font-bold">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20">
+          <div class="space-y-4 sm:space-y-6 md:space-y-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
               My <span class="text-green-400">Expertise</span>
             </h2>
-            <p class="text-gray-300 text-lg text-justify">
+            <p class="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl text-justify leading-relaxed">
               I offer comprehensive development and design services for web and mobile applications, 
               delivering clean, user-friendly designs, seamless functionality, and optimized performance 
               using modern technologies and industry best practices. I ensure each project is developed 
